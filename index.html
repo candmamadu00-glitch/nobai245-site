@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nô Bai245 - Viagens e Entregas em Bissau</title>
+    <!-- Importação de Ícones Profissionais -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #F5A623;
+            --primary-hover: #E0961B;
+            --dark: #0F172A;
+            --light: #F8FAFC;
+            --gray: #64748B;
+            --white: #FFFFFF;
+        }
+        
+        /* SCROLL SUAVE E RESET */
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
+        
+        /* HEADER PROFISSIONAL */
+        header { 
+            background-color: var(--white); 
+            padding: 20px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08); 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+        }
+        .logo { font-size: 28px; font-weight: 900; color: var(--dark); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo i { color: var(--primary); }
+        .logo span { color: var(--primary); }
+        nav { display: flex; gap: 30px; }
+        nav a { text-decoration: none; color: var(--gray); font-weight: 600; transition: 0.3s; font-size: 16px; }
+        nav a:hover { color: var(--primary); }
+
+        /* HERO SECTION (CAPA) */
+        .hero { 
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070&auto=format&fit=crop') center/cover;
+            color: var(--white); 
+            padding: 120px 20px; 
+            text-align: center; 
+        }
+        .hero h1 { font-size: 52px; font-weight: 900; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero p { font-size: 20px; color: #E2E8F0; margin-bottom: 40px; max-width: 650px; margin-left: auto; margin-right: auto; }
+        
+        /* BOTÕES */
+        .btn-group { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .btn { 
+            background-color: var(--primary); 
+            color: var(--white); 
+            padding: 16px 32px; 
+            text-decoration: none; 
+            font-size: 18px; 
+            font-weight: bold; 
+            border-radius: 50px; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px;
+            transition: all 0.3s ease; 
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover { background-color: var(--primary-hover); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(245, 166, 35, 0.4); }
+        .btn-outline { background-color: transparent; border: 2px solid var(--primary); color: var(--primary); }
+        .btn-outline:hover { background-color: var(--primary); color: var(--white); }
+
+        /* SECÇÃO PRIVACIDADE */
+        .container { max-width: 1000px; margin: 80px auto; padding: 0 20px; }
+        .privacy-box { background-color: var(--white); padding: 50px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        h2 { font-size: 32px; margin-bottom: 30px; color: var(--dark); display: flex; align-items: center; gap: 15px; }
+        h2 i { color: var(--primary); }
+        h3 { font-size: 20px; margin-top: 35px; margin-bottom: 15px; color: var(--dark); border-left: 4px solid var(--primary); padding-left: 10px; }
+        p { margin-bottom: 15px; color: #475569; font-size: 16px; }
+        ul { margin-left: 20px; margin-bottom: 25px; color: #475569; }
+        li { margin-bottom: 10px; line-height: 1.5; }
+
+        /* FOOTER */
+        footer { background-color: var(--dark); color: #94A3B8; text-align: center; padding: 40px 20px; margin-top: 50px; }
+        .footer-links { margin-top: 20px; display: flex; justify-content: center; gap: 20px; }
+        .footer-links a { color: #94A3B8; font-size: 24px; transition: 0.3s; }
+        .footer-links a:hover { color: var(--primary); }
+
+        /* MODAL (AVISO DE DOWNLOAD) */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 1000;
+            opacity: 0; visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-content {
+            background: var(--white); padding: 40px; border-radius: 20px;
+            text-align: center; max-width: 400px; width: 90%;
+            transform: translateY(-20px); transition: all 0.3s ease;
+        }
+        .modal-overlay.active .modal-content { transform: translateY(0); }
+        .modal-content i { font-size: 50px; color: var(--primary); margin-bottom: 20px; }
+        .modal-content h3 { border: none; padding: 0; margin-top: 0; }
+        .close-modal {
+            margin-top: 20px; background: var(--gray); color: var(--white);
+            border: none; padding: 10px 25px; border-radius: 30px;
+            font-weight: bold; cursor: pointer; transition: 0.3s;
+        }
+        .close-modal:hover { background: var(--dark); }
+
+        /* RESPONSIVIDADE (TELEMÓVEIS) */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; }
+            nav { gap: 15px; }
+            .hero h1 { font-size: 36px; }
+            .btn { width: 100%; justify-content: center; }
+            .privacy-box { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo"><i class="fa-solid fa-location-dot"></i> Nô Bai<span>245</span></a>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#privacidade">Privacidade</a>
+            <a href="mailto:nobai245gw@gmail.com">Contacto</a>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <h1>A sua viagem rápida e segura em Bissau</h1>
+        <p>A primeira plataforma de mobilidade pensada para a nossa terra. Solicite viagens de carro ou motorizada com motoristas 100% verificados.</p>
+        <div class="btn-group">
+            <button class="btn" onclick="abrirModal()"><i class="fa-brands fa-google-play"></i> Baixar App Passageiro</button>
+            <button class="btn btn-outline" onclick="abrirModal()"><i class="fa-solid fa-steering-wheel"></i> Quero ser Motorista</button>
+        </div>
+    </section>
+
+    <section id="privacidade" class="container">
+        <div class="privacy-box">
+            <h2><i class="fa-solid fa-shield-halved"></i> Política de Privacidade</h2>
+            <p><strong>Última atualização:</strong> Agosto de 2026</p>
+            <p>A <strong>Nô Bai245</strong> compromete-se a proteger a privacidade e a segurança dos dados pessoais dos nossos usuários (Passageiros e Motoristas). Esta Política explica como recolhemos, usamos e protegemos as suas informações.</p>
+
+            <h3>1. Dados que Recolhemos</h3>
+            <ul>
+                <li><strong>Informações de Registo:</strong> Nome, número de telemóvel e senha criptografada.</li>
+                <li><strong>Dados de Localização (GPS):</strong> Recolhemos a localização exata do seu dispositivo. <strong>Para Motoristas</strong>, a localização é recolhida em primeiro e segundo plano (background) para calcular rotas e apresentar corridas próximas, mesmo quando o aplicativo está fechado ou minimizado.</li>
+                <li><strong>Documentos Oficiais:</strong> Para motoristas, recolhemos fotos do Bilhete de Identidade e Carta de Condução estritamente para validação de segurança pela nossa central.</li>
+            </ul>
+
+            <h3>2. Como Usamos as Suas Informações</h3>
+            <ul>
+                <li>Para conectar passageiros aos motoristas mais próximos.</li>
+                <li>Para processar pagamentos e garantir a segurança da plataforma.</li>
+                <li>Para prestar suporte ao cliente e resolver incidentes de emergência (acionamento do botão S.O.S).</li>
+            </ul>
+
+            <h3>3. Partilha de Informações</h3>
+            <p>Não vendemos os seus dados a terceiros. As informações só são partilhadas da seguinte forma:</p>
+            <ul>
+                <li><strong>Entre Usuários:</strong> O passageiro vê o nome, foto e placa do motorista. O motorista vê o nome e o local de embarque/destino do passageiro.</li>
+                <li><strong>Autoridades Legais:</strong> Podemos fornecer dados às autoridades de segurança da Guiné-Bissau caso haja exigência legal ou para proteção da vida.</li>
+            </ul>
+
+            <h3>4. Segurança e Exclusão de Dados</h3>
+            <p>Utilizamos criptografia avançada. Você pode solicitar a exclusão total da sua conta e dos seus dados a qualquer momento entrando em contato com a nossa equipe de suporte. Os dados serão apagados em até 7 dias úteis.</p>
+
+            <h3>5. Contacto</h3>
+            <p>Se tiver dúvidas sobre esta política, por favor, envie um e-mail para: <a href="mailto:nobai245gw@gmail.com" style="color: var(--primary); text-decoration: none; font-weight: bold;">nobai245gw@gmail.com</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Nô Bai245. Todos os direitos reservados. Bissau, Guiné-Bissau.</p>
+        <div class="footer-links">
+            <a href="mailto:nobai245gw@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            <!-- Futuros links para redes sociais -->
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <!-- MODAL (Pop-up de Download) -->
+    <div class="modal-overlay" id="downloadModal">
+        <div class="modal-content">
+            <i class="fa-solid fa-rocket"></i>
+            <h3>Lançamento em Breve!</h3>
+            <p>Os nossos aplicativos estão em fase final de testes de segurança. Muito em breve estarão disponíveis na Google Play Store.</p>
+            <button class="close-modal" onclick="fecharModal()">Entendi</button>
+        </div>
+    </div>
+
+    <!-- SCRIPT PARA O MODAL FUNCIONAR -->
+    <script>
+        function abrirModal() {
+            document.getElementById('downloadModal').classList.add('active');
+        }
+        function fecharModal() {
+            document.getElementById('downloadModal').classList.remove('active');
+        }
+        // Fechar ao clicar fora do aviso
+        document.getElementById('downloadModal').addEventListener('click', function(e) {
+            if(e.target === this) { fecharModal(); }
+        });
+    </script>
+</body>
+</html>
