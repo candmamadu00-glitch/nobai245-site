@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nô Bai245 - Viagens e Entregas em Bissau</title>
-    <!-- Importação de Ícones Profissionais -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -16,12 +15,10 @@
             --white: #FFFFFF;
         }
         
-        /* SCROLL SUAVE E RESET */
         html { scroll-behavior: smooth; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
         body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
         
-        /* HEADER PROFISSIONAL */
         header { 
             background-color: var(--white); 
             padding: 20px 5%; 
@@ -36,21 +33,19 @@
         .logo { font-size: 28px; font-weight: 900; color: var(--dark); text-decoration: none; display: flex; align-items: center; gap: 10px; }
         .logo i { color: var(--primary); }
         .logo span { color: var(--primary); }
-        nav { display: flex; gap: 30px; }
-        nav a { text-decoration: none; color: var(--gray); font-weight: 600; transition: 0.3s; font-size: 16px; }
+        nav { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
+        nav a { text-decoration: none; color: var(--gray); font-weight: 600; transition: 0.3s; font-size: 15px; }
         nav a:hover { color: var(--primary); }
 
-        /* HERO SECTION (CAPA) */
         .hero { 
             background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070&auto=format&fit=crop') center/cover;
             color: var(--white); 
-            padding: 120px 20px; 
+            padding: 110px 20px; 
             text-align: center; 
         }
-        .hero h1 { font-size: 52px; font-weight: 900; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        .hero p { font-size: 20px; color: #E2E8F0; margin-bottom: 40px; max-width: 650px; margin-left: auto; margin-right: auto; }
+        .hero h1 { font-size: 48px; font-weight: 900; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero p { font-size: 19px; color: #E2E8F0; margin-bottom: 40px; max-width: 680px; margin-left: auto; margin-right: auto; }
         
-        /* BOTÕES */
         .btn-group { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .btn { 
             background-color: var(--primary); 
@@ -62,32 +57,38 @@
             border-radius: 50px; 
             display: flex; 
             align-items: center; 
-            gap: 10px;
+            gap: 10px; 
             transition: all 0.3s ease; 
-            border: none;
-            cursor: pointer;
+            border: none; 
+            cursor: pointer; 
         }
         .btn:hover { background-color: var(--primary-hover); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(245, 166, 35, 0.4); }
         .btn-outline { background-color: transparent; border: 2px solid var(--primary); color: var(--primary); }
         .btn-outline:hover { background-color: var(--primary); color: var(--white); }
 
-        /* SECÇÃO PRIVACIDADE */
-        .container { max-width: 1000px; margin: 80px auto; padding: 0 20px; }
+        .container { max-width: 1000px; margin: 70px auto; padding: 0 20px; }
         .privacy-box { background-color: var(--white); padding: 50px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        h2 { font-size: 32px; margin-bottom: 30px; color: var(--dark); display: flex; align-items: center; gap: 15px; }
+        h2 { font-size: 30px; margin-bottom: 25px; color: var(--dark); display: flex; align-items: center; gap: 15px; }
         h2 i { color: var(--primary); }
-        h3 { font-size: 20px; margin-top: 35px; margin-bottom: 15px; color: var(--dark); border-left: 4px solid var(--primary); padding-left: 10px; }
+        h3 { font-size: 20px; margin-top: 35px; margin-bottom: 15px; color: var(--dark); border-left: 4px solid var(--primary); padding-left: 12px; }
         p { margin-bottom: 15px; color: #475569; font-size: 16px; }
-        ul { margin-left: 20px; margin-bottom: 25px; color: #475569; }
-        li { margin-bottom: 10px; line-height: 1.5; }
+        ul, ol { margin-left: 22px; margin-bottom: 22px; color: #475569; }
+        li { margin-bottom: 10px; line-height: 1.55; }
+        .delete-card {
+            background-color: #FFFBEB;
+            border: 1px solid #FDE68A;
+            border-left: 4px solid var(--primary);
+            padding: 20px 24px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        code { background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-size: 14px; color: var(--dark); }
 
-        /* FOOTER */
         footer { background-color: var(--dark); color: #94A3B8; text-align: center; padding: 40px 20px; margin-top: 50px; }
         .footer-links { margin-top: 20px; display: flex; justify-content: center; gap: 20px; }
         .footer-links a { color: #94A3B8; font-size: 24px; transition: 0.3s; }
         .footer-links a:hover { color: var(--primary); }
 
-        /* MODAL (AVISO DE DOWNLOAD) */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.7);
@@ -112,11 +113,10 @@
         }
         .close-modal:hover { background: var(--dark); }
 
-        /* RESPONSIVIDADE (TELEMÓVEIS) */
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 15px; }
             nav { gap: 15px; }
-            .hero h1 { font-size: 36px; }
+            .hero h1 { font-size: 34px; }
             .btn { width: 100%; justify-content: center; }
             .privacy-box { padding: 30px 20px; }
         }
@@ -129,6 +129,7 @@
         <nav>
             <a href="#inicio">Início</a>
             <a href="#privacidade">Privacidade</a>
+            <a href="#exclusao">Exclusão de Conta</a>
             <a href="mailto:nobai245gw@gmail.com">Contacto</a>
         </nav>
     </header>
@@ -144,50 +145,68 @@
 
     <section id="privacidade" class="container">
         <div class="privacy-box">
-            <h2><i class="fa-solid fa-shield-halved"></i> Política de Privacidade</h2>
-            <p><strong>Última atualização:</strong> Agosto de 2026</p>
-            <p>A <strong>Nô Bai245</strong> compromete-se a proteger a privacidade e a segurança dos dados pessoais dos nossos usuários (Passageiros e Motoristas). Esta Política explica como recolhemos, usamos e protegemos as suas informações.</p>
+            <h2><i class="fa-solid fa-shield-halved"></i> Política de Privacidade e Proteção de Dados</h2>
+            <p><strong>Última atualização:</strong> Novembro de 2026<br>
+            <strong>Desenvolvedor / Responsável:</strong> Mamadu Balde — Equipe Nô Bai245</p>
+            <p>A plataforma <strong>Nô Bai245</strong> compromete-se com a transparência, segurança e privacidade dos dados pessoais dos seus utilizadores nos aplicativos oficiais <strong>Nobai245 Motorista</strong> (<code>com.mamadubalde.nobai245motorista</code>) e <strong>Nobai245 Passageiro</strong> (<code>com.mamadubalde.nobai245passageiro</code>), em conformidade com as diretrizes internacionais de proteção de dados adaptadas à República da Guiné-Bissau.</p>
 
-            <h3>1. Dados que Recolhemos</h3>
+            <h3>1. Coleta e Tratamento de Dados Pessoais</h3>
             <ul>
-                <li><strong>Informações de Registo:</strong> Nome, número de telemóvel e senha criptografada.</li>
-                <li><strong>Dados de Localização (GPS):</strong> Recolhemos a localização exata do seu dispositivo. <strong>Para Motoristas</strong>, a localização é recolhida em primeiro e segundo plano (background) para calcular rotas e apresentar corridas próximas, mesmo quando o aplicativo está fechado ou minimizado.</li>
-                <li><strong>Documentos Oficiais:</strong> Para motoristas, recolhemos fotos do Bilhete de Identidade e Carta de Condução estritamente para validação de segurança pela nossa central.</li>
+                <li><strong>Dados de Identificação e Registo:</strong> Nome completo, número de telemóvel verificado (+245), endereço de e-mail, senha encriptada e identificador de conta Google (quando o utilizador opta pelo início de sessão com Google).</li>
+                <li><strong>Dados de Viagem e Suporte:</strong> Histórico de trajetos, pontos de embarque e desembarque, avaliações e comunicações de suporte.</li>
+                <li><strong>Documentos Oficiais (Motoristas):</strong> Fotografia de perfil e fotos do Bilhete de Identidade, Carta de Condução e documentos do veículo, recolhidos estritamente para validação de segurança pela nossa central.</li>
             </ul>
 
-            <h3>2. Como Usamos as Suas Informações</h3>
+            <h3>2. Geolocalização em Primeiro e Segundo Plano</h3>
+            <p>Para conectar passageiros a motoristas próximos, calcular tarifas de forma transparente e garantir a segurança durante o trajeto, recolhemos coordenadas exatas de GPS:</p>
             <ul>
-                <li>Para conectar passageiros aos motoristas mais próximos.</li>
-                <li>Para processar pagamentos e garantir a segurança da plataforma.</li>
-                <li>Para prestar suporte ao cliente e resolver incidentes de emergência (acionamento do botão S.O.S).</li>
+                <li><strong>Em Primeiro Plano (App Aberto):</strong> Utilizado para selecionar pontos de embarque/destino no mapa e acompanhar a aproximação do veículo.</li>
+                <li><strong>Em Segundo Plano (Background):</strong> No <strong>Nobai245 Motorista</strong>, mantém o rastreamento ativo enquanto o motorista está online ou em corrida, mesmo com o ecrã bloqueado. No <strong>Nobai245 Passageiro</strong>, é utilizado exclusivamente durante uma corrida em andamento para assegurar o cálculo preciso da tarifa e permitir que o botão de emergência (S.O.S) transmita o trajeto em tempo real à central e aos contactos de confiança.</li>
             </ul>
 
-            <h3>3. Partilha de Informações</h3>
-            <p>Não vendemos os seus dados a terceiros. As informações só são partilhadas da seguinte forma:</p>
+            <h3>3. Transações Financeiras e Mobile Money</h3>
+            <p>Os pagamentos e recargas na carteira digital integrados ao <strong>Orange Money</strong> e <strong>Telecel</strong> (antigo MTN MoMo) utilizam protocolos seguros de encriptação. Armazenamos apenas a referência da transação e o número de telefone de cobrança autorizada. O <strong>Nô Bai245</strong> nunca solicita nem armazena PINs ou senhas secretas das suas contas bancárias ou carteiras móveis.</p>
+
+            <h3>4. Partilha Restrita e Segurança da Informação</h3>
+            <p>Todas as comunicações entre os aplicativos e os nossos servidores utilizam encriptação SSL/TLS (HTTPS) e tokens de autenticação JWT. Não vendemos nem comercializamos dados pessoais a terceiros. A partilha ocorre exclusivamente em:</p>
             <ul>
-                <li><strong>Entre Usuários:</strong> O passageiro vê o nome, foto e placa do motorista. O motorista vê o nome e o local de embarque/destino do passageiro.</li>
-                <li><strong>Autoridades Legais:</strong> Podemos fornecer dados às autoridades de segurança da Guiné-Bissau caso haja exigência legal ou para proteção da vida.</li>
+                <li><strong>Entre Passageiro e Motorista:</strong> Durante uma corrida, o passageiro visualiza o nome, foto, dados/matrícula do veículo e localização em tempo real do motorista; o motorista visualiza o primeiro nome, foto e locais de embarque/desembarque do passageiro.</li>
+                <li><strong>Alerta S.O.S e Autoridades Legais:</strong> Envio da localização em tempo real para a central de monitorização, contactos de confiança cadastrados ou autoridades competentes da Guiné-Bissau mediante exigência legal.</li>
             </ul>
 
-            <h3>4. Segurança e Exclusão de Dados</h3>
-            <p>Utilizamos criptografia avançada. Você pode solicitar a exclusão total da sua conta e dos seus dados a qualquer momento entrando em contato com a nossa equipe de suporte. Os dados serão apagados em até 7 dias úteis.</p>
+            <h3 id="exclusao">5. Seus Direitos e Exclusão Definitiva da Conta</h3>
+            <p>Os utilizadores dos aplicativos <strong>Nobai245 Motorista</strong> e <strong>Nobai245 Passageiro</strong> podem eliminar permanentemente a sua conta e os seus dados pessoais a qualquer momento, através de duas opções:</p>
 
-            <h3>5. Contacto</h3>
-            <p>Se tiver dúvidas sobre esta política, por favor, envie um e-mail para: <a href="mailto:nobai245gw@gmail.com" style="color: var(--primary); text-decoration: none; font-weight: bold;">nobai245gw@gmail.com</a></p>
+            <div class="delete-card">
+                <p style="margin-bottom: 10px; color: var(--dark);"><strong>Opção A — Diretamente no Aplicativo:</strong></p>
+                <p style="margin-bottom: 14px;">Aceda a <strong>"Meu Perfil" &gt; "Excluir Minha Conta"</strong> dentro do aplicativo para solicitar a eliminação imediata do seu cadastro.</p>
+                <p style="margin-bottom: 10px; color: var(--dark);"><strong>Opção B — Por E-mail (Suporte Nô Bai245):</strong></p>
+                <ol style="margin-bottom: 0;">
+                    <li>Envie um e-mail para <strong><a href="mailto:nobai245gw@gmail.com" style="color: var(--dark);">nobai245gw@gmail.com</a></strong> com o assunto <em>"Exclusão de Conta Nobai245"</em>.</li>
+                    <li>Informe o <strong>nome completo</strong>, o aplicativo utilizado (<strong>Nobai245 Motorista</strong> ou <strong>Nobai245 Passageiro</strong>) e o <strong>número de telemóvel</strong> registado.</li>
+                    <li>A nossa equipa confirmará a titularidade e concluirá a remoção da conta em até <strong>7 dias úteis</strong>.</li>
+                </ol>
+            </div>
+
+            <ul>
+                <li><strong>Dados eliminados imediatamente:</strong> Credenciais de acesso (telemóvel e senha), nome, e-mail, foto de perfil, documentos enviados pelo motorista, tokens de notificação e histórico de localização em tempo real.</li>
+                <li><strong>Retenção temporária por segurança/obrigação legal:</strong> Registos básicos de viagens concluídas e referências de transações financeiras (data, valor e identificador anónimo) podem ser mantidos por até <strong>90 dias</strong> exclusivamente para prevenção a fraudes, resolução de disputas ou cumprimento de obrigações legais, sendo apagados definitivamente após esse prazo.</li>
+            </ul>
+
+            <h3>6. Contacto</h3>
+            <p>Para dúvidas sobre esta Política de Privacidade ou sobre o tratamento dos seus dados, envie um e-mail para: <a href="mailto:nobai245gw@gmail.com" style="color: var(--primary); text-decoration: none; font-weight: bold;">nobai245gw@gmail.com</a></p>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Nô Bai245. Todos os direitos reservados. Bissau, Guiné-Bissau.</p>
+        <p>&copy; 2026 Nô Bai245 (Mamadu Balde). Todos os direitos reservados. Bissau, Guiné-Bissau.</p>
         <div class="footer-links">
             <a href="mailto:nobai245gw@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-            <!-- Futuros links para redes sociais -->
             <a href="#"><i class="fa-brands fa-facebook"></i></a>
             <a href="#"><i class="fa-brands fa-instagram"></i></a>
         </div>
     </footer>
 
-    <!-- MODAL (Pop-up de Download) -->
     <div class="modal-overlay" id="downloadModal">
         <div class="modal-content">
             <i class="fa-solid fa-rocket"></i>
@@ -197,7 +216,6 @@
         </div>
     </div>
 
-    <!-- SCRIPT PARA O MODAL FUNCIONAR -->
     <script>
         function abrirModal() {
             document.getElementById('downloadModal').classList.add('active');
@@ -205,7 +223,6 @@
         function fecharModal() {
             document.getElementById('downloadModal').classList.remove('active');
         }
-        // Fechar ao clicar fora do aviso
         document.getElementById('downloadModal').addEventListener('click', function(e) {
             if(e.target === this) { fecharModal(); }
         });
